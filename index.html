@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wall Print Chicago — Wall Printing & Murals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-dark: #0F6E56;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: rgba(0,0,0,0.1);
+      --bg: #fff;
+      --bg-secondary: #f8f8f6;
+    }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--bg); }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--text); }
+    .logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 2rem; font-size: 14px; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn-primary { background: var(--green); color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; color: var(--text); font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: var(--text); }
+
+    /* HERO */
+    .hero { padding: 5rem 2rem 3rem; text-align: center; max-width: 760px; margin: 0 auto; }
+    .badge { display: inline-block; background: var(--green-light); color: var(--green-dark); font-size: 13px; padding: 5px 16px; border-radius: 99px; margin-bottom: 1.5rem; font-weight: 500; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
+    .hero h1 em { font-style: italic; color: var(--green); }
+    .hero p { font-size: 18px; color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* GRID */
+    .mural-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 2rem 2.5rem; max-width: 960px; margin: 0 auto; }
+    .mural-card { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; position: relative; }
+    .mural-card span { position: relative; z-index: 1; }
+    .m1 { background: #9FE1CB; color: #085041; }
+    .m2 { background: #CECBF6; color: #3C3489; }
+    .m3 { background: #F5C4B3; color: #4A1B0C; }
+    .m4 { background: #C0DD97; color: #173404; }
+    .m5 { background: #B5D4F4; color: #042C53; }
+    .m6 { background: #FAC775; color: #412402; }
+
+    /* SERVICES */
+    .services { padding: 4rem 2.5rem; max-width: 960px; margin: 0 auto; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 2.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .service-card { background: var(--bg-secondary); border-radius: 14px; padding: 1.5rem; }
+    .service-icon { font-size: 28px; margin-bottom: 12px; }
+    .service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* PROCESS */
+    .process { padding: 4rem 2.5rem; max-width: 960px; margin: 0 auto; border-top: 1px solid var(--border); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+    .step-num { font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .step h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* CTA */
+    .cta { background: var(--text); color: #fff; padding: 5rem 2rem; text-align: center; }
+    .cta h2 { font-family: 'DM Serif Display', serif; font-size: 40px; margin-bottom: 1rem; }
+    .cta p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+    .cta .btn-primary { background: var(--green); font-size: 16px; padding: 14px 32px; }
+    .cta .btn-primary:hover { background: var(--green-dark); }
+
+    /* FOOTER */
+    footer { padding: 1.75rem 2.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; gap: 8px; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 34px; }
+      .mural-grid { grid-template-columns: repeat(2, 1fr); }
+      nav .nav-links { display: none; }
+      .cta h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Wall Print <span>Chicago</span></div>
+  <div class="nav-links">
+    <a href="#" onclick="scrollToSection('work'); return false;">Work</a>
+    <a href="#" onclick="scrollToSection('services'); return false;">Services</a>
+    <a href="#" onclick="scrollToSection('process'); return false;">Process</a>
+    <a href="#" onclick="scrollToSection('cta'); return false;">Contact</a>
+  </div>
+  <button class="btn-primary" onclick="scrollToSection('cta')">Book a call</button>
+</nav>
+
+<section class="hero">
+  <div class="badge">Chicago's wall printing & mural specialists</div>
+  <h1>Transform your space with <em>stunning</em> wall art</h1>
+  <p>From bespoke murals to precision wall printing, we bring your vision to life — for homes, offices, restaurants, and retail spaces across Chicago.</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="scrollToSection('cta')">Book a free call</button>
+    <button class="btn-outline">View our work</button>
+  </div>
+</section>
+
+<div class="mural-grid" id="work">
+  <div class="mural-card m1"><span>Nature & Botanicals</span></div>
+  <div class="mural-card m2"><span>Abstract & Geometric</span></div>
+  <div class="mural-card m3"><span>Custom Portraits</span></div>
+  <div class="mural-card m4"><span>Corporate Branding</span></div>
+  <div class="mural-card m5"><span>Cityscapes</span></div>
+  <div class="mural-card m6"><span>Kids & Playrooms</span></div>
+</div>
+
+<section class="services" id="services">
+  <p class="section-title">What we do</p>
+  <p class="section-sub">Every project handled with precision and care, from concept to completion.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🖌️</div>
+      <h3>Custom murals</h3>
+      <p>Hand-crafted and painted murals tailored to your space and vision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🖨️</div>
+      <h3>Wall printing</h3>
+      <p>High-resolution direct-to-wall printing for crisp, vibrant results.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>Commercial spaces</h3>
+      <p>Brand-aligned wall art for offices, retail, and hospitality venues.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Residential</h3>
+      <p>Personalised designs that make every room a statement.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <p class="section-title">How it works</p>
+  <p class="section-sub">A simple, collaborative process — start to finish.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <h4>Book a call</h4>
+      <p>Tell us about your space and vision in a free 20-minute consultation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <h4>Design & approval</h4>
+      <p>We create a custom concept and refine it until you're fully satisfied.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <h4>Installation</h4>
+      <p>Our team handles everything — clean, professional, and on schedule.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 04</div>
+      <h4>Enjoy your space</h4>
+      <p>Your walls, transformed. We follow up to make sure you love it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <h2>Ready to transform your walls?</h2>
+  <p>Book a free 20-minute call and let's bring your vision to life across Chicago.</p>
+  <button class="btn-primary" style="font-size:16px; padding:14px 32px;">Book a free call →</button>
+</section>
+
+<footer>
+  <span>© 2026 Wall Print Chicago. All rights reserved.</span>
+  <span>hello@wallprintchicago.com</span>
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
